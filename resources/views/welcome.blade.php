@@ -18,7 +18,7 @@
     <body class="antialiased">
         <form action="{{ route('convert') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="file" name="file"  accpet=".doc, .docx">
+            <input type="file" name="file">
             <button type="submit">Convert to PDF</button>
         </form>
     </body>
