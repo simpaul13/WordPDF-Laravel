@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ConvertRequest;
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\IOFactory;
 use Dompdf\Dompdf;
@@ -9,13 +10,8 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ConvertController extends Controller
 {
-    public function convert(Request $request)
+    public function convert(ConvertRequest $request)
     {
-        // Validate the uploaded file
-        $request->validate([
-            'file' => 'required|mimetypes:application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        ]);
-
         // Get the uploaded file
         $file = $request->file('file');
 
